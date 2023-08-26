@@ -1,13 +1,15 @@
---- 
+---
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
@@ -16,9 +18,14 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
+
+
 	<body>
+		<Header></Header>
 		<slot />
+		<Footer></Footer>
 	</body>
+
 </html>
 <style is:global>
 	:root {
