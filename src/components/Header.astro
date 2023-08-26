@@ -1,0 +1,43 @@
+---
+interface Props {
+	title: string;
+	body: string;
+	href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+
+<header class="header">
+    <h1 class="logo">logo</h1>
+    <nav class="nav">
+        <ul>
+            <li>
+                <a href="/">home</a>
+                <a href="/price">料金体系</a>
+                <a href="/blogIndex">ブログ一覧</a>
+                <a href="/blog">ブログ詳細</a>
+                <a href="/newsIndex">ニュース一覧</a>
+                <a href="/news">ニュース詳細</a>
+                <a href="/contact">お問い合わせ</a>
+                <a href="/contactThanks">お問い合わせ完了</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    header {
+        background-color: #fff;
+    }
+    .logo {
+        color: red;
+    }
+    .nav {
+        color: blue;
+    }
+    .nav a {
+        color: green;
+    }
+</style>

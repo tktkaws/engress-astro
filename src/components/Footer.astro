@@ -1,0 +1,35 @@
+---
+interface Props {
+	title: string;
+	body: string;
+	href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+<footer>
+    <h1 class="logo">logo</h1>
+    <nav class="nav">
+        <ul>
+            <li>
+                <a href="/">home</a>
+                <a href="/other">other</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
+
+<style>
+    footer {
+        background-color: white;
+    }
+    .logo {
+        color: black;
+    }
+    .nav {
+        color: black;
+    }
+    .nav a {
+        color: black;
+    }
+</style>
