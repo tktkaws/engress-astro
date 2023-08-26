@@ -1,43 +1,60 @@
 ---
+import ButtonOrange from "./ButtonOrange.astro";
+import ButtonBlue from "./ButtonBlue.astro";
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+  title: string;
+  body: string;
+  href: string;
 }
 
 const { href, title, body } = Astro.props;
 ---
 
-
 <header class="header">
-    <h1 class="logo">logo</h1>
-    <nav class="nav">
-        <ul>
-            <li>
-                <a href="/">home</a>
-                <a href="/price">料金体系</a>
-                <a href="/blogIndex">ブログ一覧</a>
-                <a href="/blog">ブログ詳細</a>
-                <a href="/newsIndex">ニュース一覧</a>
-                <a href="/news">ニュース詳細</a>
-                <a href="/contact">お問い合わせ</a>
-                <a href="/contactThanks">お問い合わせ完了</a>
-            </li>
-        </ul>
-    </nav>
+  <h1 class="logo">
+    <!-- ソース出し分け？ -->
+    <img src="/images/home/logo.png" />
+    <!-- <img src="/images/home/logo@2x.png" /> -->
+  </h1>
+  <nav class="nav">
+    <ul>
+      <li>
+        <a href="/">ホーム</a>
+        <a href="/newsIndex">お知らせ</a>
+        <a href="/blogIndex">ブログ</a>
+        <a href="/price">コース・料金</a>
+        <!-- <a href="/blog">ブログ詳細</a>
+        <a href="/news">ニュース詳細</a>
+        <a href="/contact">お問い合わせ</a>
+        <a href="/contactThanks">お問い合わせ完了</a> -->
+      </li>
+    </ul>
+  </nav>
+  <div class="call">
+    <span>平日08:00〜20:00</span>
+    <span>0123-456-7890</span>
+  </div>
+  <ButtonOrange />
+  <ButtonBlue />
 </header>
 
 <style>
-    header {
-        background-color: #fff;
-    }
-    .logo {
-        color: red;
-    }
-    .nav {
-        color: blue;
-    }
-    .nav a {
-        color: green;
-    }
+  header {
+    background-color: #ffffff;
+    width: 1280px;
+    height: 80px;
+    /* display: flex;
+    flex-direction: row; */
+    color: #1b224c;
+    font-size: 16px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 15% 40% 15% 15% 15%;
+  }
+  .logo {
+  }
+  .nav {
+  }
+  .nav a {
+  }
 </style>
