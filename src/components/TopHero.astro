@@ -1,0 +1,65 @@
+---
+import ButtonRadius from "./ButtonRadius.astro";
+
+interface Props {
+  title: string;
+  body: string;
+  href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<section class="topHero">
+  <img src="/images/home/fv.png" />
+  <div class="content">
+    <p class="title">TOEFL対策はEngress</p>
+    <p>
+      日本人へのTOEFL指導歴豊かな講師陣の
+      <br />
+      コーチング型TOEFLスクール
+    </p>
+    <ButtonRadius />
+    <p class="contact"><a href="contact"> お問い合わせ</a></p>
+  </div>
+</section>
+
+<style>
+  .topHero {
+    height: 476px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .topHero img {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+  }
+  .content {
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 1;
+    position: relative;
+    padding: 20px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: #fff;
+  }
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .contact {
+    text-decoration: underline;
+  }
+</style>
