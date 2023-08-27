@@ -1,0 +1,90 @@
+---
+import ButtonRadius from "./ButtonRadius.astro";
+
+interface Props {
+  title: string;
+  body: string;
+  href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<section class="cta">
+  <div class="bgImage">
+    <img src="/images/home/cta.png" />
+    <div class="content">
+      <p class="title">まずは無料で資料請求から</p>
+      <ButtonRadius />
+      <p class="contact"><a href="contact"> お問い合わせ</a></p>
+    </div>
+  </div>
+  <div class="onlyText">
+    <p>
+      <span class="left"> お電話でのお問い合わせはこちら</span>
+    </p>
+    <p>
+      <strong>0123-456-7890</strong>
+    </p>
+    <p>平日 08:00~20:00</p>
+  </div>
+</section>
+
+<style>
+  .bgImage {
+    height: 254px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .bgImage img {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .content {
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 1;
+    position: relative;
+    padding: 20px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .contact {
+    color: #fff;
+    text-decoration: underline;
+  }
+  .onlyText {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: #fff;
+    color: #1b224c;
+  }
+  strong {
+    font-size: 36px;
+  }
+  .left {
+    font-weight: bold;
+  }
+  .container {
+    width: 900px;
+  }
+</style>
