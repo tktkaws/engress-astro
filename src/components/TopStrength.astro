@@ -1,0 +1,129 @@
+---
+import ButtonStrength from "./ButtonStrength.astro";
+---
+
+<section class="topStrength">
+  <div class="container">
+    <h2 class="title">TOEFL対策に特化したEngress3つの強み</h2>
+    <div class="card">
+      <div class="text">
+        <p class="card-tag">特長 1</p>
+        <h3 class="card-title">
+          TOEFLに最適化された
+          <br />無駄のないカリキュラム
+        </h3>
+        <p class="card-text">
+          TOEFLではビジネス英語には登場しない数多くの学術的内容が出題されます。そのため、ベースとなる知識も必要になります。Engressでは過去1000題を分析し、最適なカリキュラムを組んでいます。
+        </p>
+      </div>
+      <img src="/images/home/feature01.png" alt="" />
+    </div>
+    <div class="card">
+      <div class="text">
+        <p class="card-tag">特長 2</p>
+        <h3 class="card-title">
+          日本人指導歴10年以上の
+          <br />経験豊富な講師陣
+        </h3>
+        <p class="card-text">
+          Engressの講師陣は、もともと日本人向けにTOEFLを教えていた人が大多数です。また全メンバーがTESOL(英語教授法)を取得しており、知識と経験を兼ね備えている教育のプロフェッショナルです。
+        </p>
+      </div>
+      <img src="/images/home/feature02.png" alt="" />
+    </div>
+    <div class="card">
+      <div class="text">
+        <p class="card-tag">特長 3</p>
+        <h3 class="card-title">平均3ヶ月でTOEFL iBT20点アップ</h3>
+        <p class="card-text">
+          Engressは高校生からサラリーマンまで様々な年齢層の方々が通われていますが、完全オーダーメイドのカリキュラムで柔軟に対応しているため、平均3ヶ月でTOEFLスコアを20点アップさせています。
+        </p>
+      </div>
+      <img src="/images/home/feature03.png" alt="" />
+    </div>
+    <div class="strength-cta">
+      <img src="/images/home/price.png" />
+      <div class="content">
+        <p class="title">Engressの料金プランはこちら</p>
+        <ButtonStrength />
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .topStrength {
+    background: white;
+    color: #1b224c;
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    width: 900px;
+  }
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 80px 0 40px 0;
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+  .card:nth-child(2n) {
+    flex-direction: row-reverse;
+  }
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 40px;
+  }
+  .card-tag {
+    background-color: #f5a623;
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    padding: 4px 16px;
+  }
+  .card-text {
+    margin-top: 40px;
+  }
+  .card img {
+    width: 100%;
+  }
+  .strength-cta {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .strength-cta img {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .content {
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 1;
+    position: relative;
+    padding: 20px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .strength-cta .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+</style>
