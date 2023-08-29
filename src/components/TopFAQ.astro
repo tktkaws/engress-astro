@@ -1,0 +1,240 @@
+---
+---
+
+<section class="topFaq">
+  <div class="container">
+    <h2 class="title">よくある質問</h2>
+    <details class="js-details">
+      <summary class="js-summary">
+        <span class="summary_inner">
+          Engressはサラリーマンでも学習を続けられるでしょうか？<span
+            class="icon"></span>
+        </span>
+      </summary>
+      <div class="content js-content">
+        <div class="content_inner">
+          Engressは各個人に最適な学習プランをご提供しております。サラリーマンの方でも継続できます。
+        </div>
+      </div>
+    </details>
+
+    <details class="js-details">
+      <summary class="js-summary">
+        <span class="summary_inner">
+          教材はオリジナルのものを使用しているのでしょうか？<span class="icon"
+          ></span>
+        </span>
+      </summary>
+      <div class="content js-content">
+        <div class="content_inner">
+          Engressは各個人に最適な学習プランをご提供しております。サラリーマンの方でも継続できます。
+        </div>
+      </div>
+    </details>
+
+    <details class="js-details">
+      <summary class="js-summary">
+        <span class="summary_inner">
+          講師に日本人はいますか？<span class="icon"></span>
+        </span>
+      </summary>
+      <div class="content js-content">
+        <div class="content_inner">
+          Engressは各個人に最適な学習プランをご提供しております。サラリーマンの方でも継続できます。
+        </div>
+      </div>
+    </details>
+    <details class="js-details">
+      <summary class="js-summary">
+        <span class="summary_inner">
+          TOEFL以外の海外大学合格のサポートもしてもらえるのでしょうか？<span
+            class="icon"></span>
+        </span>
+      </summary>
+      <div class="content js-content">
+        <div class="content_inner">
+          Engressは各個人に最適な学習プランをご提供しております。サラリーマンの方でも継続できます。
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<style>
+  section {
+    background: white;
+    color: #1b224c;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 75px;
+  }
+  .container {
+    width: 900px;
+  }
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 80px 0 40px 0;
+  }
+  summary {
+    /* display: list-item;以外を指定してデフォルトの三角形アイコンを消します */
+    display: block;
+  }
+
+  summary::-webkit-details-marker {
+    /* Safariで表示されるデフォルトの三角形アイコンを消します */
+    display: none;
+  }
+  .summary_inner {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 24px;
+    padding-left: 0px;
+    border-top: 1px solid #1b224c;
+    /* border-bottom: 1px solid #1b224c; */
+    color: #002255;
+  }
+  /* --------アイコンを作ります-------- */
+  .icon {
+    display: block;
+    position: relative;
+    width: 24px;
+    margin-left: 6px;
+    flex-shrink: 0;
+    transform-origin: center 43%;
+    transition: transform 0.4s;
+  }
+
+  /* アコーディオンが開いた時のスタイル */
+  /* details[open] .icon {
+    transform: rotate(90deg);
+  } */
+
+  /* アイコンのバーのスタイル */
+  .icon::before,
+  .icon::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #1b224c;
+  }
+
+  .icon::before {
+    left: 0;
+    /* transform: rotate(45deg); */
+  }
+
+  .icon::after {
+    right: -1px;
+    transform: rotate(90deg);
+  }
+
+  details[open] .icon::after {
+    transform: rotate(180deg);
+  }
+  /* --------アコーディオンの中身のスタイル-------- */
+  .content {
+    overflow: hidden;
+
+    /* color: #1b224c; */
+
+    /* details直下のタグにpaddingを設定すると挙動がおかしくなるので、ここには指定しない */
+  }
+
+  .content_inner {
+    background-color: #f8f8f8;
+    padding: 24px 48px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setUpAccordion();
+  });
+
+  /**
+   * ライブラリ(GSAP)を使ってアコーディオンのアニメーションを制御します
+   */
+  const setUpAccordion = () => {
+    const details = document.querySelectorAll(".js-details");
+    const IS_OPENED_CLASS = "is-opened"; // アイコン操作用のクラス名
+
+    details.forEach((element) => {
+      const summary = element.querySelector(".js-summary");
+      const content = element.querySelector(".js-content");
+
+      summary.addEventListener("click", (event) => {
+        // デフォルトの挙動を無効化
+        event.preventDefault();
+
+        // is-openedクラスの有無で判定（detailsのopen属性の判定だと、アニメーション完了を待つ必要がありタイミング的に不安定になるため）
+        if (element.classList.contains(IS_OPENED_CLASS)) {
+          // アコーディオンを閉じるときの処理
+          // アイコン操作用クラスを切り替える(クラスを取り除く)
+          element.classList.toggle(IS_OPENED_CLASS);
+
+          // アニメーション実行
+          closingAnim(content, element).restart();
+        } else {
+          // アコーディオンを開くときの処理
+          // アイコン操作用クラスを切り替える(クラスを付与)
+          element.classList.toggle(IS_OPENED_CLASS);
+
+          // open属性を付与
+          element.setAttribute("open", "true");
+
+          // アニメーション実行
+          openingAnim(content).restart();
+        }
+      });
+    });
+  };
+
+  /**
+   * アコーディオンを閉じる時のアニメーション
+   */
+  const closingAnim = (content, element) =>
+    gsap.to(content, {
+      height: 0,
+      opacity: 0,
+      duration: 0.4,
+      ease: "power3.out",
+      overwrite: true,
+      onComplete: () => {
+        // アニメーションの完了後にopen属性を取り除く
+        element.removeAttribute("open");
+      },
+    });
+
+  /**
+   * アコーディオンを開く時のアニメーション
+   */
+  const openingAnim = (content) =>
+    gsap.fromTo(
+      content,
+      {
+        height: 0,
+        opacity: 0,
+      },
+      {
+        height: "auto",
+        opacity: 1,
+        duration: 0.4,
+        ease: "power3.out",
+        overwrite: true,
+      }
+    );
+</script>
