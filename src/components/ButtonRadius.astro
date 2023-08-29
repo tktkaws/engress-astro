@@ -9,26 +9,18 @@ const { href, title, body } = Astro.props;
 ---
 
 <button>
-  <a href="/contact">お問い合わせ</a>
+  <a href="/contact">資料請求</a>
 </button>
 <style>
   button {
-    background-color: #fff;
-    border: 1px solid #000;
-    border-radius: 4px;
+    width: 280px;
+    height: 50px;
+    background-color: #f5a623;
+    color: #fff;
+    border-radius: 25px;
     padding: 8px 16px;
     font-size: 16px;
     font-weight: bold;
-    color: #000;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  button:hover {
-    background-color: #000;
-    color: #fff;
-  }
-  a {
-    text-decoration: none;
-    color: #000;
+    text-align: center;
   }
 </style>
