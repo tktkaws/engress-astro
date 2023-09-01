@@ -1,0 +1,140 @@
+---
+---
+
+<section class="priceList">
+  <h2 class="title">料金表</h2>
+  <ul>
+    <li class="card">
+      <h3 class="card-title">基礎プラン</h3>
+      <div class="card-body">
+        <p class="card-price">59,000円~</p>
+        <p class="card-desc">カリキュラム作成</p>
+        <p class="card-desc">TOEFL学習サポート</p>
+        <p class="card-desc">週一回のビデオMTG</p>
+      </div>
+    </li>
+    <li class="card">
+      <h3 class="card-title">演習プラン</h3>
+      <div class="card-body">
+        <p class="card-price">75,000円~</p>
+        <p class="card-desc">カリキュラム作成</p>
+        <p class="card-desc">TOEFL学習サポート</p>
+        <p class="card-desc">週一回のビデオMTG</p>
+        <p class="card-desc">月二回の模試（解説 付き）</p>
+      </div>
+    </li>
+    <li class="card--orange">
+      <h3 class="card-title--orange">
+        おすすめ
+        <br />志望校対策プラン
+      </h3>
+      <div class="card-body">
+        <p class="card-price">95,000円~</p>
+        <p class="card-desc">カリキュラム作成</p>
+        <p class="card-desc">TOEFL学習サポート</p>
+        <p class="card-desc">週一回のビデオMTG</p>
+        <p class="card-desc">月二回の模試（解説 付き）</p>
+        <p class="card-desc">週一の英語面接対策</p>
+      </div>
+    </li>
+    <li class="card">
+      <h3 class="card-title">フレックスプラン</h3>
+      <div class="card-body">
+        <p class="card-price">60,000円~</p>
+        <p class="card-desc--none">＊別途ご相談ください</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+    padding-bottom: 36px;
+  }
+  section > * {
+    grid-column: 2;
+  }
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    padding-top: 50px;
+  }
+  .card {
+    width: 220px;
+  }
+  .card--orange {
+    width: 220px;
+    margin-top: -24px;
+  }
+  .card-title {
+    background: #1b224c;
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 16px;
+    text-align: center;
+  }
+  .card-title--orange {
+    background: #f5a623;
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 16px;
+    text-align: center;
+  }
+  .card-body {
+    border: solid 1px;
+    border-top: none;
+    height: 444px;
+  }
+  .card-price {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 16px;
+    position: relative;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .card-price::after {
+    content: "*月額（税抜価格）";
+    position: absolute;
+    bottom: -16px;
+    left: 40px;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .card-desc {
+    margin-left: 24px;
+    padding: 16px;
+    position: relative;
+  }
+  .card-desc::before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+  .card-desc::before {
+    width: 8px;
+    height: 14px;
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    border-color: transparent #333 #333 transparent;
+    transform: rotate(45deg);
+  }
+  .card-desc--none {
+    margin-left: 24px;
+  }
+</style>

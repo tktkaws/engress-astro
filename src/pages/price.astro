@@ -1,96 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Hero from "../components/Hero.astro";
+import PricingStructure from "../components/PricingStructure.astro";
+import PriceList from "../components/PriceList.astro";
 ---
 
 <Layout title="料金体系">
   <main>
     <Hero title="コース・料金" imgSrc="/images/other/plan.png" />
-    <section class="pricingStructure">
-      <h2 class="title">料金体系</h2>
-      <ul class="pricingStructure-list">
-        <li class="pricingStructure-item">入会金 39,800円</li>
-        <!-- <li class="pricingStructure-item-plus">+</li> -->
-        <li class="pricingStructure-item">月額費用</li>
-      </ul>
-      <p>
-        Engressのカリキュラムは完全オーダーメイドのため、カリキュラム内のサポート内容によって料金が変動します。おすすめのスタンダードプランでは、進学先に合わせたサポートまで包括的に行います。
-      </p>
-    </section>
-    <section class="priceList">
-      <h2 class="title">料金表</h2>
-      <ul>
-        <li class="card">
-          <h3 class="card-title">基礎プラン</h3>
-          <p class="card-price"></p>
-          <div class="card-desc">
-            <p></p>
-            <p></p>
-            <p></p>
-          </div>
-        </li>
-      </ul>
-    </section>
+    <PricingStructure />
+    <PriceList />
   </main>
 
   <style>
     main {
       width: 100%;
-    }
-    section {
-      display: grid;
-      grid-template-columns: 1fr 900px 1fr;
-    }
-    section > * {
-      grid-column: 2;
-    }
-    .title {
-      font-size: 36px;
-      font-weight: bold;
-      margin-top: 40px;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    .pricingStructure {
-    }
-    .pricingStructure-list {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      margin-bottom: 50px;
-      position: relative;
-    }
-    .pricingStructure-list::before,
-    .pricingStructure-list::after {
-      content: "";
-      position: absolute;
-      font-size: 24px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border: solid 1px;
-      width: 26px;
-    }
-    .pricingStructure-list::before {
-      transform: translate(-50%, -50%) rotate(90deg);
-    }
-    .pricingStructure-list::after {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-
-    .pricingStructure-item {
-      width: 280px;
-      height: 90px;
-      background: #1b224c;
-      color: white;
-      text-align: center;
-      font-size: 22px;
-      padding: 33px;
-    }
-    .pricingStructure-item-plus {
-      font-size: 60px;
-      font-weight: 100;
     }
   </style>
 </Layout>
