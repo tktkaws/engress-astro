@@ -1,19 +1,123 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Cta from "../components/Cta.astro";
+import BlogList from "../components/BlogList.astro";
+import BreadCrumb from "../components/BreadCrumb.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-
-		<h1><span class="title">ニュース詳細</span></h1>
-	</main>
+<Layout title="ニュース">
+  <BreadCrumb />
+  <section class="news">
+    <article>
+      <h1>お知らせのタイトルテキストテキストテキストテキスト</h1>
+      <p class="news-date"><time datetime="2020-10-01">2020-10-01</time></p>
+      <h2>見出し1</h2>
+      <p>
+        本文テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+      </p>
+      <h3>見出しh3</h3>
+      <p>
+        本文テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+      </p>
+      <blockquote>
+        <p>
+          引用文テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </blockquote>
+      <img src="images/other/sample4.png" alt="" />
+      <li class="list-item">リストリストリストリストリスト</li>
+      <li class="list-item">リストリストリストリストリスト</li>
+      <li class="list-item">リストリストリストリストリスト</li>
+      <p class="link">
+        <a href="">テキストリンク</a>
+        <a href="">テキストリンク</a>
+      </p>
+    </article>
+  </section>
+  <Cta />
 </Layout>
 
 <style>
-    .title {
-        color: white;
-        font-size: 1.5rem;
-    }
-
+  section {
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+  }
+  section > * {
+    grid-column: 2;
+  }
+  article {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  article > * + * {
+    margin-top: 30px;
+  }
+  article h1 {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  .news-date {
+    text-align: right;
+  }
+  article .caption {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    height: 370px;
+  }
+  article h2 {
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  article h3 {
+    font-size: 20px;
+    font-weight: bold;
+    border-left: solid 3px;
+    padding-left: 8px;
+  }
+  article p {
+  }
+  article blockquote {
+    padding: 16px;
+    padding-left: 74px;
+    padding-bottom: 36px;
+    background: #f8f8f8;
+    position: relative;
+  }
+  article blockquote p {
+    position: relative;
+  }
+  article blockquote::before {
+    content: "//";
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+    border: solid 1px;
+  }
+  article .list-item {
+    list-style: none;
+    padding-left: 16px;
+    position: relative;
+  }
+  article .list-item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 20%;
+    color: #f5a623;
+    background-color: #f5a623;
+    border: solid 1px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+  article .link {
+    color: #f5a623;
+    text-decoration: underline;
+  }
 </style>
