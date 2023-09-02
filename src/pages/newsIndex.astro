@@ -1,19 +1,156 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Cta from "../components/Cta.astro";
+import BreadCrumb from "../components/BreadCrumb.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-
-		<h1><span class="title">ニュース一覧</span></h1>
-	</main>
+<Layout title="お知らせ">
+  <Hero title="お知らせ" imgSrc="/images/other/news.png" />
+  <BreadCrumb />
+  <section class="news-index">
+    <h1 class="title">お知らせ一覧</h1>
+    <ul>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+      <li class="news-index-item">
+        <time datetime="2020-12-30">2020-12-30</time>
+        <p class="news-title">
+          お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </li>
+    </ul>
+    <div class="pagenation">
+      <ul>
+        <li>
+          <a href="#" class="pagenationItemActive">1</a>
+        </li>
+        <li>
+          <a href="#" class="pagenationItem">2</a>
+        </li>
+        <li>
+          <a href="#" class="pagenationItem">3</a>
+        </li>
+        <li>
+          <span>...</span>
+        </li>
+        <li>
+          <a href="#" class="pagenationItem">5</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <Cta />
 </Layout>
 
 <style>
-    .title {
-        color: white;
-        font-size: 1.5rem;
-    }
-
+  section {
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+  }
+  section > * {
+    grid-column: 2;
+  }
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  ul {
+    padding: 0;
+  }
+  .news-index-item {
+    display: flex;
+    align-items: center;
+    border-top: solid 1px #d5d5d5;
+    padding: 23px 0;
+  }
+  .news-index-item:last-child {
+    border-bottom: solid 1px #d5d5d5;
+  }
+  time {
+    font-size: 14px;
+    margin-right: 40px;
+  }
+  .news-title {
+    font-size: 16px;
+    text-decoration: underline;
+  }
+  .pagenation ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    gap: 16px;
+    padding-bottom: 80px;
+  }
+  .pagenationItem {
+    padding: 16px;
+    border: 1px solid;
+  }
+  .pagenationItemActive {
+    padding: 16px;
+    border: 1px solid;
+    background: #1b224c;
+    color: white;
+  }
 </style>
