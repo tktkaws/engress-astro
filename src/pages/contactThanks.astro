@@ -1,19 +1,38 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import BreadCrumb from "../components/BreadCrumb.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-
-		<h1><span class="title">お問い合わせ完了</span></h1>
-	</main>
+  <BreadCrumb />
+  <div class="contact-container">
+    <p class="contact-container-desc">
+      お問い合わせいただきありがとうございます
+      <br />
+      内容を確認した後、担当者よりご連絡いたします
+    </p>
+    <p class="contact-thanks-link">
+      <a href="/">ホームへ戻る</a>
+    </p>
+  </div>
 </Layout>
 
 <style>
-    .title {
-        color: white;
-        font-size: 1.5rem;
-    }
-
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 700px 1fr;
+  }
+  .contact-container > * {
+    grid-column: 2;
+  }
+  .contact-container-desc {
+    margin-top: 58px;
+    text-align: center;
+  }
+  .contact-thanks-link {
+    margin-top: 58px;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 58px;
+  }
 </style>
