@@ -1,9 +1,11 @@
 import { defineConfig } from "astro/config";
+import relativeLinks from "astro-relative-links";
 
 // https://astro.build/config
 export default defineConfig({
+  // outDir: "./dist",
+  // base: "/dist",
   build: {
-    // 例: ビルドの間に `page/index.html` のかわりに `page.html` を生成します。
     format: "file",
   },
   vite: {
@@ -16,4 +18,5 @@ export default defineConfig({
       },
     },
   },
+  integrations: [relativeLinks()],
 });

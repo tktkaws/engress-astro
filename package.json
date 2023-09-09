@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "astro": "^2.10.14",
+    "astro-relative-links": "^0.3.4",
     "gsap": "^3.12.2",
     "sass": "^1.66.1"
   }
