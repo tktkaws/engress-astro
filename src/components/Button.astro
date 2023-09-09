@@ -1,14 +1,15 @@
 ---
 const { href, title, body, class } = Astro.props;
 ---
-  <button class:list={["button", Astro.props.class]}>
+<button class:list={["button", Astro.props.class]}>
   <a href="/contact">{title}</a>
 </button>
-<style>
+
+<style lang="scss">
   button {
     width: 142px;
     height: 50px;
-    color: var(--background);
+    color: $c-background;
     font-size: 14px;
     display: flex;
     justify-content: center;
@@ -16,10 +17,10 @@ const { href, title, body, class } = Astro.props;
     border-radius: 5px;
   }
   .accent {
-    background-color: var(--accent);
+    background-color: $c-accent;
 
   }
   .main {
-    background-color: var(--main);
+    background-color: $c-main;
   }
 </style>
