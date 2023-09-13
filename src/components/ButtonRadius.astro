@@ -9,13 +9,13 @@ const { title, class } = Astro.props;
     color: $c-background;
     border-radius: 25px;
     padding: 8px 16px;
-    font-size: 16px;
+    font-size: fluid(12, 16, 320, 767);
     font-weight: bold;
     text-align: center;
   }
   .hero {
-    width: 260px;
-    height: 60px;
+    width: fluid(180, 260, 320, 767);
+    height: fluid(40, 60, 320, 767);
     background-color: $c-accent;
     border-radius: 31px;
   }

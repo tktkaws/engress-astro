@@ -1,12 +1,5 @@
 ---
 import ButtonRadius from "./ButtonRadius.astro";
-
-interface Props {
-  title: string;
-  body: string;
-  href: string;
-}
-
 const { href, title, body } = Astro.props;
 ---
 
@@ -14,22 +7,22 @@ const { href, title, body } = Astro.props;
   <img src="/images/home/fv.png" />
   <div class="content">
     <p class="title">TOEFL対策はEngress</p>
-    <p>
+    <p class="desc">
       日本人へのTOEFL指導歴豊かな講師陣の
       <br />
       コーチング型TOEFLスクール
     </p>
-    <ButtonRadius />
+    <ButtonRadius class="hero" title="資料請求" />
     <p class="contact"><a href="contact"> お問い合わせ</a></p>
   </div>
 </section>
 
-<style>
+<style lang="scss">
   .topHero {
-    height: 476px;
+    margin-top: 80px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 476px;
   }
   .topHero img {
     grid-row: 1;
@@ -44,22 +37,27 @@ const { href, title, body } = Astro.props;
     grid-column: 1;
     z-index: 1;
     position: relative;
-    padding: 20px;
-    justify-self: center;
-    align-self: center;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    color: #fff;
+    color: $c-background;
+    margin-top: 116px;
+    font-size: 18px;
+    font-size: fluid(12, 18, 320, 767);
   }
   .title {
-    font-size: 32px;
+    font-size: fluid(24, 48, 320, 767);
     font-weight: bold;
-    margin-bottom: 20px;
+  }
+  .desc {
+    margin-top: 28px;
+    line-height: 1.8;
+    margin-bottom: 51px;
   }
   .contact {
+    margin-top: 22px;
+    font-size: fluid(12, 16, 320, 767);
     text-decoration: underline;
   }
 </style>
