@@ -1,5 +1,6 @@
 ---
 import Button from "./Button.astro";
+import NavButton from "./NavButton.astro";
 ---
 
 <header class="header">
@@ -7,8 +8,6 @@ import Button from "./Button.astro";
     <a href="/index.html">
       <img src="/images/home/logo@2x.png" />
     </a>
-    <!-- ソース出し分け？ -->
-    <!-- <img src="/images/home/logo.png" /> -->
   </h1>
   <nav class="gnav">
     <ul>
@@ -25,68 +24,51 @@ import Button from "./Button.astro";
         <a href="/price.html">コース・料金</a>
       </li>
     </ul>
+    <div class="right">
+      <address>
+        <p class="small"><small>平日08:00〜20:00</small></p>
+        <p class="call">
+          <img src="images/home/tell.svg" alt="" />
+          <span>0123-456-7890</span>
+        </p>
+      </address>
+      <Button title="資料請求" class="accent" />
+      <Button title="お問い合わせ" class="main" />
+    </div>
   </nav>
-  <address>
-    <small>平日08:00〜20:00</small>
-    <p class="call">
-      <img src="images/home/tell.svg" alt="" />
-      <span>0123-456-7890</span>
-    </p>
-  </address>
-  <Button title="資料請求" class="accent" />
-  <Button title="お問い合わせ" class="main" />
-  <!-- <button class="hamburger">
-    <span class="hamburgur--inner"></span>
-  </button> -->
-  <button
-    class="navbtn"
-    onClick="document.querySelector('body').classList.toggle('open')"
-  >
-    <span class="navbtn-bar"></span>
-    <span class="sr-only">MENU</span>
-  </button>
-
-  <nav class="nav center">
-    <ul class="menu">
-      <li>
-        <a href="/index.html">ホーム</a>
-      </li>
-      <li>
-        <a href="/newsIndex.html">お知らせ</a>
-      </li>
-      <li>
-        <a href="/blogIndex.html">ブログ</a>
-      </li>
-      <li>
-        <a href="/price.html">コース・料金</a>
-      </li>
-    </ul>
-    <Button title="資料請求" class="accent" />
-    <Button title="お問い合わせ" class="accent" />
-  </nav>
+  <NavButton />
 </header>
 
-<style is:global lang="scss">
+<style lang="scss">
   header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: $c-background;
     padding-left: 15px;
     padding-right: 10px;
     width: 100%;
     height: 80px;
     font-size: 16px;
-    /* display: grid; */
     align-items: center;
-    /* grid-template-columns: 163px 1fr 186px 152px 137px; */
     display: flex;
+    justify-content: space-between;
+    gap: 28px;
+  }
+  .gnav {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+  .right {
+    display: flex;
+    gap: 10px;
   }
   .logo {
     width: 136px;
-  }
-  .logo img {
-    width: 100%;
-  }
-  address {
-    text-align: right;
-    margin-right: 23px;
   }
   .call {
     margin-top: 5px;
@@ -96,126 +78,36 @@ import Button from "./Button.astro";
     gap: 5px;
     justify-content: flex-end;
   }
-  .call img {
-  }
-  .call span {
-  }
   .gnav ul {
     display: flex;
     justify-content: flex-start;
     list-style: none;
     padding-inline: 0;
-    gap: 16px;
+    gap: 28px;
     font-weight: bold;
   }
-  .nav {
-  }
-  .nav a {
-  }
 
-  /* ハンバーガーボタン */
-  .navbtn {
-    all: unset;
-    outline: revert;
-    -webkit-tap-highlight-color: transparent;
-    cursor: pointer;
-    // width: max(46px, var(--size1));
-    aspect-ratio: 1/1;
-    display: grid;
-    place-items: center;
-    // color: var(--primary);
-    width: 46px;
-    color: $c-main;
-  }
-
-  .navbtn-bar,
-  .navbtn::before,
-  .navbtn::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: currentColor;
-    grid-area: 1 / 1;
-    transition: transform 0.5s;
-  }
-  .navbtn::before {
-    transform: translateY(-12px);
-  }
-  .navbtn::after {
-    transform: translateY(12px);
-  }
-
-  .open .navbtn-bar {
-    transform: scale(0);
-  }
-  .open .navbtn::before {
-    transform: translateY(0) rotate(45deg);
-  }
-  .open .navbtn::after {
-    transform: translateY(0) rotate(-45deg);
-  }
-
-  .open .navbtn {
-    // color: var(--white);
-    color: $c-background;
-    // color: $c-main;
-    z-index: 200;
-  }
-
-  /* スクリーンリーダー */
-  .sr-only {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  /* ナビゲーションメニュー */
-  .nav {
-    gap: 44px;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    // background: linear-gradient(0.96deg, #1b224c, #ffffff 182.75%);
-    background: $c-main;
-    // color: var(--white);
-    color: $c-background;
-    transition: transform 0.5s;
-  }
-
-  .open .nav {
-    transform: translate(-100%, 0);
-  }
-
-  .open {
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-  }
-  .center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  @media (min-width: 1000px) {
-    .navbtn {
-      display: none;
-    }
-  }
   @media (max-width: 999px) {
-    .gnav,
-    address,
-    button.accent,
-    button.main {
+    .gnav {
       display: none;
     }
+  }
+</style>
+
+<style lang="scss">
+  address {
+    text-align: right;
+    margin-right: 13px;
+  }
+  .small {
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+  address .call {
+    margin-top: 5px;
+  }
+  .call img {
+    width: 10px;
+    height: 15px;
   }
 </style>
