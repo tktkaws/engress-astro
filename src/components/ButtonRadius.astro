@@ -22,9 +22,11 @@ const { title, class } = Astro.props;
   .strength {
     background-color: transparent;
     border: solid 1px;
-    height: 50px;
-    width: 200px;
+    border-radius: 31px;
+    width: fluid(160, 200, 320, 767);
+    height: fluid(30, 50, 320, 767);
     font-weight: normal;
+
   }
   .cta {
     background-color: $c-accent;
