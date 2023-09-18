@@ -1,100 +1,204 @@
 ---
-import ButtonStrength from "./ButtonStrength.astro";
+import ButtonRadius from "./ButtonRadius.astro";
 ---
 
 <section class="topStrength">
-  <div class="container">
-    <h2 class="title">TOEFL対策に特化したEngress3つの強み</h2>
-    <div class="card">
+  <h2 class="title">
+    TOEFL対策に特化した
+    <br class="only-mb" />Engress3つの強み
+  </h2>
+  <ul>
+    <li class="card">
       <div class="text">
-        <p class="card-tag">特長 1</p>
+        <p class="card-tag">
+          <span>特長 1</span>
+        </p>
         <h3 class="card-title">
           TOEFLに最適化された
-          <br />無駄のないカリキュラム
+          <br class="only-pc" />無駄のないカリキュラム
         </h3>
         <p class="card-text">
           TOEFLではビジネス英語には登場しない数多くの学術的内容が出題されます。そのため、ベースとなる知識も必要になります。Engressでは過去1000題を分析し、最適なカリキュラムを組んでいます。
         </p>
       </div>
-      <img src="/images/home/feature01.png" alt="" />
-    </div>
-    <div class="card">
+      <div class="card-image">
+        <img src="/images/home/feature01.png" alt="" />
+      </div>
+    </li>
+    <li class="card">
       <div class="text">
-        <p class="card-tag">特長 2</p>
+        <p class="card-tag">
+          <span>特長 2</span>
+        </p>
         <h3 class="card-title">
           日本人指導歴10年以上の
-          <br />経験豊富な講師陣
+          <br class="only-pc" />経験豊富な講師陣
         </h3>
         <p class="card-text">
           Engressの講師陣は、もともと日本人向けにTOEFLを教えていた人が大多数です。また全メンバーがTESOL(英語教授法)を取得しており、知識と経験を兼ね備えている教育のプロフェッショナルです。
         </p>
       </div>
-      <img src="/images/home/feature02.png" alt="" />
-    </div>
-    <div class="card">
+      <div class="card-image">
+        <img src="/images/home/feature02.png" alt="" />
+      </div>
+    </li>
+    <li class="card">
       <div class="text">
-        <p class="card-tag">特長 3</p>
+        <p class="card-tag">
+          <span>特長 3</span>
+        </p>
         <h3 class="card-title">平均3ヶ月でTOEFL iBT20点アップ</h3>
         <p class="card-text">
           Engressは高校生からサラリーマンまで様々な年齢層の方々が通われていますが、完全オーダーメイドのカリキュラムで柔軟に対応しているため、平均3ヶ月でTOEFLスコアを20点アップさせています。
         </p>
       </div>
-      <img src="/images/home/feature03.png" alt="" />
-    </div>
-    <div class="strength-cta">
-      <img src="/images/home/price.png" />
-      <div class="content">
-        <p class="title">Engressの料金プランはこちら</p>
-        <ButtonStrength />
+      <div class="card-image">
+        <img src="/images/home/feature03.png" alt="" />
       </div>
+    </li>
+  </ul>
+  <div class="strength-cta">
+    <img src="/images/home/price.png" />
+    <div class="content">
+      <p class="cta-title">Engressの料金プランはこちら</p>
+      <ButtonRadius class="strength" title="料金を見てみる" />
     </div>
   </div>
 </section>
-<style>
-  .topStrength {
-    background: white;
-    color: #1b224c;
+<style lang="scss">
+  section {
     display: flex;
     justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+    @media only screen and (max-width: 1000px) {
+      grid-template-columns: 1fr 90% 1fr;
+    }
   }
-  .container {
-    width: 900px;
+  section > * {
+    grid-column: 2;
+    @media only screen and (max-width: 767px) {
+      grid-column: 1 / 4;
+    }
   }
   .title {
-    font-size: 32px;
+    font-size: fluid(18, 36, 320, 767);
     font-weight: bold;
+    margin-top: 59px;
     text-align: center;
-    margin: 0;
-    padding: 80px 0 40px 0;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 59px;
+    justify-content: center;
+    align-items: center;
   }
   .card {
     display: flex;
     flex-direction: row;
-    gap: 40px;
-    margin-bottom: 80px;
+    gap: 50px;
+    margin-bottom: 60px;
+    @media only screen and (max-width: 1000px) {
+      width: 700px;
+      gap: 20px;
+    }
+    @media only screen and (max-width: 767px) {
+      display: grid;
+      width: 100%;
+      margin-bottom: 0;
+      // height: 400px;
+    }
   }
+
   .card:nth-child(2n) {
     flex-direction: row-reverse;
   }
+  .text {
+    @media only screen and (max-width: 1000px) {
+      flex: 1;
+    }
+    @media only screen and (max-width: 767px) {
+      grid-row: 1;
+      grid-column: 1;
+      z-index: 2;
+      padding: 50px;
+      color: $c-background;
+    }
+  }
   .card-title {
-    font-size: 24px;
+    font-size: fluid(18, 26, 320, 767);
     font-weight: bold;
-    margin-top: 40px;
+    line-height: 1.5;
+    margin-top: 35px;
+    @media only screen and (max-width: 1000px) {
+      margin-top: 15px;
+      font-size: fluid(18, 22, 787, 1000);
+    }
+    @media only screen and (max-width: 767px) {
+      margin-top: 40px;
+    }
   }
   .card-tag {
-    background-color: #f5a623;
-    color: #fff;
-    font-size: 14px;
-    display: inline-block;
-    padding: 4px 16px;
+    background-color: $c-accent;
+    color: $c-background;
+    font-size: 12px;
+    width: 90px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .card-text {
     margin-top: 40px;
+    @media only screen and (max-width: 1000px) {
+      margin-top: 15px;
+    }
+    @media only screen and (max-width: 767px) {
+      margin-top: 40px;
+    }
+  }
+  .card-image {
+    @media only screen and (max-width: 767px) {
+      grid-row: 1;
+      grid-column: 1;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+  }
+  .card-image::after {
+    @media only screen and (max-width: 767px) {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      pointer-events: none;
+    }
   }
   .card img {
-    width: 100%;
+    width: 350px;
+    height: 240px;
+    @media only screen and (max-width: 1000px) {
+      width: 280px;
+      height: 192px;
+    }
+    @media only screen and (max-width: 767px) {
+      grid-row: 1;
+      grid-column: 1;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
   .strength-cta {
+    margin-top: 30px;
+    margin-bottom: 39px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -111,19 +215,27 @@ import ButtonStrength from "./ButtonStrength.astro";
     grid-column: 1;
     z-index: 1;
     position: relative;
-    padding: 20px;
-    justify-self: center;
-    align-self: center;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
   }
-  .strength-cta .title {
-    font-size: 32px;
+  .cta-title {
+    margin-top: 61px;
+    font-size: fluid(18, 26, 320, 767);
     font-weight: bold;
-    color: #fff;
+    color: $c-background;
     margin-bottom: 20px;
+  }
+  .only-mb {
+    display: none;
+    @media only screen and (max-width: 767px) {
+      display: block;
+    }
+  }
+  .only-pc {
+    display: block;
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
   }
 </style>
