@@ -2,88 +2,112 @@
 ---
 
 <section class="topSuccess">
-  <div class="container">
-    <h2 class="title">TOEFL成功事例</h2>
-    <ul>
-      <li>
-        <div class="title">
-          TOEFL iBT 100点を突破してコロンビア大学大学院に進学できました!
-        </div>
-        <div class="bgWhite">
-          <img src="/images/home/model01.png" alt="" />
-        </div>
-        <p class="tag">会社員</p>
-        <p class="name">T.Fujiyamaさん</p>
-        <p class="caption">3ヶ月でTOEFL80→108点</p>
-      </li>
-      <li>
-        <div class="title">
-          半年でTOEFL 40点→100点を達成!コロンビア大学大学院に合格
-        </div>
-        <div class="bgWhite">
-          <img src="/images/home/model02.png" alt="" />
-        </div>
-        <p class="tag">大学生</p>
-        <p class="name">Y.Takiyamaさん</p>
-        <p class="caption">6ヶ月でTOEFL40→100点</p>
-      </li>
-      <li>
-        <div class="title">
-          早稲田大学 国際教養学部AO入試合格!TOEFL iBT 109点
-        </div>
-        <div class="bgWhite">
-          <img src="/images/home/model03.png" alt="" />
-        </div>
-        <p class="tag">高校生</p>
-        <p class="name">M.Yamadaさん</p>
-        <p class="caption">5ヶ月でTOEFL68→109点</p>
-      </li>
-    </ul>
-  </div>
+  <h2 class="title">TOEFL成功事例</h2>
+  <ul>
+    <li class="card first">
+      <div class="card-title">
+        TOEFL iBT 100点を突破してコロンビア大学大学院に進学できました!
+      </div>
+      <div class="bgWhite">
+        <img src="/images/home/model01.png" alt="" />
+      </div>
+      <p class="card-tag">会社員</p>
+      <p class="card-name">T.Fujiyamaさん</p>
+      <p class="card-caption">3ヶ月でTOEFL80→108点</p>
+    </li>
+    <li class="card second">
+      <div class="card-title">
+        半年でTOEFL 40点→100点を達成!コロンビア大学大学院に合格
+      </div>
+      <div class="bgWhite">
+        <img src="/images/home/model02.png" alt="" />
+      </div>
+      <p class="card-tag">大学生</p>
+      <p class="card-name">Y.Takiyamaさん</p>
+      <p class="card-caption">6ヶ月でTOEFL40→100点</p>
+    </li>
+    <li class="card third">
+      <div class="card-title">
+        早稲田大学 国際教養学部AO入試合格!TOEFL iBT 109点
+      </div>
+      <div class="bgWhite">
+        <img src="/images/home/model03.png" alt="" />
+      </div>
+      <p class="card-tag">高校生</p>
+      <p class="card-name">M.Yamadaさん</p>
+      <p class="card-caption">5ヶ月でTOEFL68→109点</p>
+    </li>
+  </ul>
 </section>
 
-<style>
+<style lang="scss">
   section {
-    background: #1b224c;
-    color: white;
+    background-color: $c-main;
+    color: $c-background;
     display: flex;
     justify-content: center;
-    padding-top: 58px;
-    padding-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+    @media only screen and (max-width: 1000px) {
+      grid-template-columns: 1fr 90% 1fr;
+    }
   }
-  .container {
-    width: 900px;
+  section > * {
+    grid-column: 2;
+    @media only screen and (max-width: 767px) {
+      grid-column: 1 / 4;
+    }
   }
-  h2 {
-    font-size: 32px;
+  .title {
+    margin-top: 58px;
+    font-size: fluid(18, 36, 320, 767);
     font-weight: bold;
     text-align: center;
   }
   ul {
     margin-top: 137px;
-    display: flex;
-    gap: 32px;
-  }
-  li {
+    margin-bottom: 60px;
     display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-rows: 49px 171px 32px 32px;
-    gap: 16px;
+    gap: 30px;
+    @media only screen and (max-width: 1000px) {
+      justify-content: center;
+    }
+    @media only screen and (max-width: 767px) {
+      margin-top: 58px;
+    }
   }
-  .title {
+  .card {
+    grid-row: 1 / 1;
+    display: grid;
+    width: 280px;
+  }
+  @media only screen and (max-width: 1000px) {
+    .card.third {
+      grid-row: 2 / 2;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .card.second {
+      grid-row: 2 / 2;
+    }
+    .card.third {
+      grid-row: 3 / 3;
+    }
+  }
+  .card-title {
     grid-column: 1 / 3;
-    grid-row: 1 / 2;
-    margin: 0;
-    padding: 0;
+    font-size: 16px;
+    line-height: 1.5;
   }
   .bgWhite {
     grid-column: 1 / 3;
     grid-row: 2 / 3;
     width: 100%;
-    height: 100%;
+    height: 171px;
+    margin-top: 9px;
     position: relative;
     z-index: 1;
-    background-color: white;
+    background-color: $c-background;
     display: flex;
     justify-content: center;
     align-items: end;
@@ -93,38 +117,34 @@
     height: 140px;
     object-fit: cover;
   }
-  img::after {
-    content: "";
-    display: block;
-    background-color: white;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
-  }
-  .tag {
+  .card-tag {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
-    margin: 0;
-    padding: 2px;
-    background-color: white;
-    color: #1b224c;
+    margin-top: 16px;
+    padding: 8px 10px;
+    width: 100px;
+    height: 32px;
+    background-color: $c-background;
+    color: $c-main;
   }
-  .name {
+  .card-name {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
-    margin: 0;
-    padding: 2px;
-    background-color: white;
-    color: #1b224c;
+    margin-top: 16px;
+    width: 172px;
+    height: 32px;
+    padding: 8px 10px;
+    background-color: $c-background;
+    color: $c-main;
+    justify-self: end;
   }
-  .caption {
+  .card-caption {
     grid-column: 1 / 3;
     grid-row: 4 / 5;
-    margin: 0;
-    padding: 2px;
-    background-color: white;
-    color: #1b224c;
+    height: 32px;
+    margin-top: 10px;
+    padding: 8px 10px;
+    background-color: $c-background;
+    color: $c-main;
   }
 </style>
