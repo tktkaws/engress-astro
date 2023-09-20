@@ -1,12 +1,5 @@
 ---
 import ButtonRadius from "./ButtonRadius.astro";
-
-interface Props {
-  title: string;
-  body: string;
-  href: string;
-}
-
 const { href, title, body } = Astro.props;
 ---
 
@@ -15,27 +8,22 @@ const { href, title, body } = Astro.props;
     <img src="/images/home/cta.png" />
     <div class="content">
       <p class="title">まずは無料で資料請求から</p>
-      <ButtonRadius />
+      <ButtonRadius class="cta" title="資料請求" />
       <p class="contact"><a href="contact"> お問い合わせ</a></p>
     </div>
   </div>
-  <div class="onlyText">
-    <p>
-      <span class="left"> お電話でのお問い合わせはこちら</span>
-    </p>
-    <p>
-      <strong>0123-456-7890</strong>
-    </p>
-    <p>平日 08:00~20:00</p>
-  </div>
+  <address class="onlyText">
+    <p class="left">お電話でのお問い合わせはこちら</p>
+    <p class="center">0123-456-7890</p>
+    <p class="right">平日 08:00~20:00</p>
+  </address>
 </section>
 
-<style>
+<style lang="scss">
   .bgImage {
-    height: 254px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 256px;
   }
   .bgImage img {
     grid-row: 1;
@@ -49,42 +37,58 @@ const { href, title, body } = Astro.props;
     grid-column: 1;
     z-index: 1;
     position: relative;
-    padding: 20px;
     justify-self: center;
-    align-self: center;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    color: $c-background;
   }
   .title {
-    font-size: 32px;
+    margin-top: 70px;
+    margin-bottom: 29px;
+    font-size: fluid(18, 32, 320, 767);
     font-weight: bold;
-    color: #fff;
-    margin-bottom: 20px;
   }
   .contact {
-    color: #fff;
+    margin-top: 22px;
     text-decoration: underline;
   }
   .onlyText {
     width: 100%;
     height: 80px;
-    display: flex;
+    padding-bottom: 25px;
+    display: grid;
+    grid-template-columns: 1fr fluid(200, 280, 788, 1000) 1fr;
+    align-items: end;
     justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    background: #fff;
-    color: #1b224c;
-  }
-  strong {
-    font-size: 36px;
+    gap: 20px;
+    @media only screen and (max-width: 767px) {
+      padding-top: 25px;
+      height: auto;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 10px;
+    }
   }
   .left {
     font-weight: bold;
+    justify-self: end;
+    @media only screen and (max-width: 767px) {
+      justify-self: center;
+    }
   }
-  .container {
-    width: 900px;
+  .center {
+    margin-left: 10px;
+    font-size: fluid(24, 36, 788, 1000);
+    font-weight: bold;
+    line-height: 1;
+    @media only screen and (max-width: 767px) {
+      justify-self: center;
+    }
+  }
+  .right {
+    @media only screen and (max-width: 767px) {
+      justify-self: center;
+    }
   }
 </style>
