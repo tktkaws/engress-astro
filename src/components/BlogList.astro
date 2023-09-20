@@ -1,0 +1,87 @@
+<ul class="blogList">
+  <li class="blogCard">
+    <div class="blogImage">
+      <img src="/images/home/sample01.png" alt="" />
+      <p class="blogTag">カテゴリー</p>
+    </div>
+    <p class="blogTitle">Engress説明会in大阪の模様をお伝えします</p>
+    <p class="blogDate">
+      <time class="blogDate">2020-12-27</time>
+    </p>
+  </li>
+  <li class="blogCard">
+    <div class="blogImage">
+      <img src="/images/home/sample02.png" alt="" />
+      <p class="blogTag">カテゴリー</p>
+    </div>
+    <p class="blogTitle">Engressもくもく会でみんなでTOEFL学習をしませんか？</p>
+    <p class="blogDate">
+      <time class="blogDate">2020-12-01</time>
+    </p>
+  </li>
+  <li class="blogCard">
+    <div class="blogImage">
+      <img src="/images/home/sample03.png" alt="" />
+      <p class="blogTag">カテゴリー</p>
+    </div>
+    <p class="blogTitle">TOEFL学習にはコーチング学習が最強である話</p>
+    <p class="blogDate">
+      <time class="blogDate">2020-11-20</time>
+    </p>
+  </li>
+</ul>
+<style lang="scss">
+  .blogList {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+  }
+  .blogCard {
+    height: fluid(80, 110, 320, 767);
+    display: grid;
+    grid-template-columns: fluid(100, 150, 320, 767) 1fr;
+    grid-template-rows: 80% 20%;
+    column-gap: 20px;
+  }
+  .blogImage {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    position: relative;
+  }
+  .blogImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .blogTag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $c-main;
+    color: $c-background;
+    font-size: 12px;
+    padding: 5px 10px;
+    font-weight: thin;
+  }
+  .blogTitle {
+    font-size: fluid(12, 16, 320, 767);
+    line-height: 1.8;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: underline;
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  .blogDate {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    text-align: left;
+    align-self: end;
+  }
+</style>
