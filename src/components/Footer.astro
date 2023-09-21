@@ -1,35 +1,227 @@
 ---
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+  title: string;
+  body: string;
+  href: string;
 }
 
 const { href, title, body } = Astro.props;
 ---
-<footer>
-    <h1 class="logo">logo</h1>
-    <nav class="nav">
-        <ul>
-            <li>
-                <a href="/">home</a>
-                <a href="/other">other</a>
-            </li>
-        </ul>
-    </nav>
-</footer>
 
-<style>
-    footer {
-        background-color: white;
+<footer>
+  <div class="container">
+    <nav class="footer-nav">
+      <ul>
+        <li>
+          <a href="/index.html">ホーム</a>
+        </li>
+        <li>
+          <a href="/newsIndex.html">お知らせ</a>
+        </li>
+        <li>
+          <a href="/blogIndex.html">ブログ</a>
+        </li>
+        <li>
+          <a href="/price.html">コース・料金</a>
+        </li>
+      </ul>
+    </nav>
+    <address class="address">
+      <h1 class="logo">
+        <img src="/images/home/logo@2x.png" />
+      </h1>
+      <p class="call">
+        <img src="images/home/tell_white.svg" alt="" />
+        <span>0123-456-7890</span>
+      </p>
+      <p class="time">平日08:00~20:00</p>
+    </address>
+  </div>
+</footer>
+<section class="copywrite">
+  <div class="copywrite-container">
+    <p>© 2020 Engress.</p>
+  </div>
+</section>
+
+<style lang="scss">
+  footer {
+    width: 100%;
+    height: 230px;
+    background-color: $c-main;
+    color: $c-background;
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+    @media only screen and (max-width: 1000px) {
+      grid-template-columns: 1fr 90% 1fr;
     }
-    .logo {
-        color: black;
+  }
+  footer > * {
+    grid-column: 2;
+    @media only screen and (max-width: 767px) {
+      grid-column: 1 / 4;
     }
-    .nav {
-        color: black;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    @media only screen and (max-width: 767px) {
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
     }
-    .nav a {
-        color: black;
+  }
+
+  .footer-nav ul {
+    margin-top: 49px;
+    display: grid;
+    list-style: none;
+    padding-inline: 0;
+    @media only screen and (max-width: 767px) {
+      font-size: fluid(12, 16, 320, 767);
     }
+    @media only screen and (max-width: 500px) {
+      margin-top: 24px;
+      padding-inline: 200px;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 100px 100px;
+      row-gap: 10px;
+    }
+  }
+  .footer-nav ul li {
+    grid-row: 1;
+    border-right: 1px solid $c-background;
+    padding-inline: 20px;
+    @media only screen and (max-width: 500px) {
+      padding-inline: 0;
+      grid-row: auto;
+      align-self: center;
+    }
+  }
+  .footer-nav ul li:first-child {
+    padding-left: 0;
+  }
+  .footer-nav ul li:last-child {
+    border-right: none;
+  }
+  .footer-nav ul li:nth-child(odd) {
+    border-right: 1px solid $c-background;
+  }
+  @media only screen and (max-width: 500px) {
+    .footer-nav ul li:first-child {
+      padding-left: 0;
+    }
+
+    .footer-nav ul li:nth-child(even) {
+      border-right: none;
+      justify-self: end;
+    }
+    .footer-nav ul li:nth-child(odd) {
+      border-right: none;
+      justify-self: start;
+    }
+  }
+  .address {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    @media only screen and (max-width: 767px) {
+      margin-top: 49px;
+      display: grid;
+      grid-template-rows: 29px 29px;
+      grid-template-columns: 197px 150px;
+    }
+    @media only screen and (max-width: 500px) {
+      grid-template-rows: repeat(1fr);
+      grid-template-columns: 150px;
+      row-gap: 10px;
+    }
+  }
+  .logo {
+    margin-top: 35px;
+    background: $c-background;
+    width: 197px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 767px) {
+      margin-top: 0;
+      grid-row: 1/-1;
+      grid-column: 1;
+    }
+    @media only screen and (max-width: 500px) {
+      width: 150px;
+      height: 50px;
+      grid-row: auto;
+      grid-column: auto;
+      justify-self: center;
+      align-self: center;
+    }
+  }
+  .logo img {
+    width: 159px;
+    height: 31px;
+    @media only screen and (max-width: 500px) {
+      width: 120px;
+      height: 24px;
+    }
+  }
+  .call {
+    margin-top: 27px;
+    @media only screen and (max-width: 767px) {
+      grid-row: 1;
+      grid-column: 2;
+    }
+    @media only screen and (max-width: 500px) {
+      grid-row: auto;
+      grid-column: auto;
+      justify-self: center;
+      align-self: center;
+    }
+  }
+  .call img {
+    width: 10px;
+    height: 15px;
+    margin-right: 3px;
+    margin-bottom: 2px;
+  }
+  .call span {
+    margin-top: 0.5em;
+  }
+  .time {
+    margin-top: 13px;
+    font-size: 12px;
+    @media only screen and (max-width: 767px) {
+      grid-row: 2;
+      grid-column: 2;
+    }
+    @media only screen and (max-width: 500px) {
+      grid-row: auto;
+      grid-column: auto;
+      justify-self: center;
+      align-self: center;
+    }
+  }
+  .copywrite {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+    padding: 20px 0;
+
+    @media only screen and (max-width: 1000px) {
+      grid-template-columns: 1fr 90% 1fr;
+    }
+  }
+  .copywrite > * {
+    grid-column: 2;
+  }
+  .copywrite-container {
+    display: grid;
+    justify-content: end;
+    @media only screen and (max-width: 767px) {
+      justify-content: center;
+    }
+  }
 </style>
