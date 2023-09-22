@@ -19,10 +19,12 @@ const { href, title, body } = Astro.props;
 
 <style lang="scss">
   .topHero {
-    margin-top: 80px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 476px;
+    @media only screen and (max-width: 767px) {
+      // grid-template-rows: 400px;
+    }
   }
   .topHero img {
     grid-row: 1;
@@ -31,6 +33,10 @@ const { href, title, body } = Astro.props;
     height: 100%;
     position: relative;
     object-fit: cover;
+    @media only screen and (max-width: 767px) {
+      object-fit: none;
+      object-position: 73% 100%;
+    }
   }
   .content {
     grid-row: 1;
