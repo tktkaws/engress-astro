@@ -1,9 +1,4 @@
 ---
-// interface Props {
-//   title: string;
-//   imgSrc: string;
-// }
-
 const { title, imgSrc } = Astro.props;
 ---
 
@@ -12,12 +7,15 @@ const { title, imgSrc } = Astro.props;
   <h2 class="title">{title}</h2>
 </section>
 
-<style>
+<style lang="scss">
   section {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 221px;
+    @media only screen and (max-width: 767px) {
+      grid-template-rows: 160px;
+    }
   }
   section img {
     grid-row: 1;
@@ -28,9 +26,9 @@ const { title, imgSrc } = Astro.props;
     object-fit: cover;
   }
   .title {
-    color: white;
+    color: $c-background;
     font-weight: bold;
-    font-size: 32px;
+    font-size: fluid(24, 32, 320, 767);
     grid-column: 1/1;
     grid-row: 1/1;
     grid-row: 1;
