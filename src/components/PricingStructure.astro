@@ -4,37 +4,51 @@
 <section class="pricingStructure">
   <h2 class="title">料金体系</h2>
   <ul class="pricingStructure-list">
-    <li class="pricingStructure-item">入会金 39,800円</li>
-    <li class="pricingStructure-item">月額費用</li>
+    <li class="pricingStructure-item">
+      <span>入会金 39,800円</span>
+    </li>
+    <li class="pricingStructure-item">
+      <span>月額費用</span>
+    </li>
   </ul>
-  <p>
+  <p class="pricingStructure-desc">
     Engressのカリキュラムは完全オーダーメイドのため、カリキュラム内のサポート内容によって料金が変動します。おすすめのスタンダードプランでは、進学先に合わせたサポートまで包括的に行います。
   </p>
 </section>
 
-<style>
+<style lang="scss">
   section {
     display: grid;
     grid-template-columns: 1fr 900px 1fr;
+    @media only screen and (max-width: 1000px) {
+      grid-template-columns: 1fr 90% 1fr;
+    }
   }
   section > * {
     grid-column: 2;
   }
   .title {
-    font-size: 36px;
+    font-size: fluid(18, 36, 320, 767);
     font-weight: bold;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 58px;
     text-align: center;
   }
   .pricingStructure {
   }
   .pricingStructure-list {
+    margin-top: 60px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-bottom: 50px;
     position: relative;
+    gap: 30px;
+    @media only screen and (max-width: 767px) {
+      margin-top: 40px;
+    }
+    @media only screen and (max-width: 500px) {
+      flex-direction: column;
+      gap: 50px;
+    }
   }
   .pricingStructure-list::before,
   .pricingStructure-list::after {
@@ -57,14 +71,30 @@
   .pricingStructure-item {
     width: 280px;
     height: 90px;
-    background: #1b224c;
-    color: white;
+    background: $c-main;
+    color: $c-background;
     text-align: center;
     font-size: 22px;
-    padding: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 1000px) {
+      width: calc(280px * 0.8);
+      height: calc(90px * 0.8);
+      font-size: calc(22px * 0.8);
+    }
+    @media only screen and (max-width: 767px) {
+      width: calc(280px * 0.6);
+      height: calc(90px * 0.6);
+      font-size: calc(22px * 0.6);
+    }
   }
   .pricingStructure-item-plus {
     font-size: 60px;
     font-weight: 100;
+  }
+  .pricingStructure-desc {
+    margin-top: 45px;
+    line-height: 1.6;
   }
 </style>
