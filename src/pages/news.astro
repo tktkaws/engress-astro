@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
-import BlogList from "../components/BlogList.astro";
 import BreadCrumb from "../components/BreadCrumb.astro";
 ---
 
@@ -9,7 +8,9 @@ import BreadCrumb from "../components/BreadCrumb.astro";
   <BreadCrumb />
   <section class="news">
     <article>
-      <h1>お知らせのタイトルテキストテキストテキストテキスト</h1>
+      <h1>
+        お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト
+      </h1>
       <p class="news-date"><time datetime="2020-10-01">2020-10-01</time></p>
       <h2>見出し1</h2>
       <p>
@@ -24,7 +25,9 @@ import BreadCrumb from "../components/BreadCrumb.astro";
           引用文テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
         </p>
       </blockquote>
-      <img src="images/other/sample4.png" alt="" />
+      <div class="caption">
+        <img src="images/other/sample4.png" alt="" />
+      </div>
       <li class="list-item">リストリストリストリストリスト</li>
       <li class="list-item">リストリストリストリストリスト</li>
       <li class="list-item">リストリストリストリストリスト</li>
@@ -37,41 +40,46 @@ import BreadCrumb from "../components/BreadCrumb.astro";
   <Cta />
 </Layout>
 
-<style>
+<style lang="scss">
   section {
     display: grid;
     grid-template-columns: 1fr 900px 1fr;
+    @media only screen and (max-width: 1000px) {
+      grid-template-columns: 1fr 90% 1fr;
+    }
   }
   section > * {
     grid-column: 2;
   }
   article {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 60px;
+    margin-bottom: 60px;
   }
   article > * + * {
     margin-top: 30px;
   }
   article h1 {
-    font-size: 32px;
+    font-size: fluid(20, 28, 320, 767);
     font-weight: bold;
   }
   .news-date {
     text-align: right;
   }
   article .caption {
+    width: min(100%, 400px);
+    aspect-ratio: 400/250;
+  }
+  article .caption img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    height: 370px;
+    height: 100%;
   }
   article h2 {
     margin-top: 40px;
-    font-size: 24px;
+    font-size: fluid(18, 26, 320, 767);
     font-weight: bold;
   }
   article h3 {
-    font-size: 20px;
+    font-size: fluid(16, 22, 320, 767);
     font-weight: bold;
     border-left: solid 3px;
     padding-left: 8px;
@@ -82,25 +90,24 @@ import BreadCrumb from "../components/BreadCrumb.astro";
     padding: 16px;
     padding-left: 74px;
     padding-bottom: 36px;
-    background: #f8f8f8;
+    background: $c-sub;
     position: relative;
   }
   article blockquote p {
     position: relative;
   }
   article blockquote::before {
-    content: "//";
+    content: " “ ";
     display: block;
     position: absolute;
-    top: 16px;
+    top: 0;
     left: 16px;
-    width: 40px;
-    height: 40px;
-    border: solid 1px;
+    font-size: 90px;
+    color: $c-sub-quate;
   }
   article .list-item {
     list-style: none;
-    padding-left: 16px;
+    padding-left: 36px;
     position: relative;
   }
   article .list-item::before {
@@ -109,15 +116,15 @@ import BreadCrumb from "../components/BreadCrumb.astro";
     position: absolute;
     left: 0;
     top: 20%;
-    color: #f5a623;
-    background-color: #f5a623;
+    color: $c-accent;
+    background-color: $c-accent;
     border: solid 1px;
     width: 11px;
     height: 11px;
     border-radius: 50%;
   }
   article .link {
-    color: #f5a623;
+    color: $c-accent;
     text-decoration: underline;
   }
 </style>
