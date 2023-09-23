@@ -5,7 +5,9 @@ const { imgSrc, title, date, description, category } = Astro.props;
 <li class="blogCard">
   <div class="blogImage">
     <img src={imgSrc} alt="" />
-    <p class="blogTag">{category}</p>
+    <p class="blogTag">
+      <span>{category}</span>
+    </p>
   </div>
   <p class="blogTitle">{title}</p>
   <time class="blogDate">{date}</time>
@@ -14,18 +16,35 @@ const { imgSrc, title, date, description, category } = Astro.props;
   </p>
 </li>
 
-<style>
+<style lang="scss">
   .blogCard {
     display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 20% 40% 40%;
-    column-gap: 16px;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 16px 34px 1fr;
+    row-gap: 20px;
+    column-gap: 50px;
     height: 148px;
+    @media only screen and (max-width: 1000px) {
+      grid-template-columns: 200px 1fr;
+      column-gap: 20px;
+    }
+    @media only screen and (max-width: 767px) {
+      align-self: center;
+      width: fluid(280, 400, 320, 787);
+      height: auto;
+      row-gap: 10px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 148px auto auto 1fr;
+    }
   }
   .blogImage {
     grid-column: 1 / 2;
     grid-row: 1 / 4;
     position: relative;
+    @media only screen and (max-width: 767px) {
+      grid-column: 1 / 1;
+      grid-row: 1 / 1;
+    }
   }
   .blogImage img {
     width: 100%;
@@ -36,26 +55,44 @@ const { imgSrc, title, date, description, category } = Astro.props;
     position: absolute;
     top: 0;
     left: 0;
-    background: #1b224c;
-    color: white;
+    background: $c-main;
+    color: $c-background;
+    width: 80px;
+    height: 28px;
     font-size: 12px;
-    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .blogTitle {
-    font-size: 16px;
+    font-size: 26px;
+    line-height: 1.5;
     font-weight: bold;
-    margin: 0;
-    padding: 0;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    font-size: 26px;
     text-decoration: underline;
+    @media only screen and (max-width: 1000px) {
+      font-size: fluid(18, 26, 787, 1000);
+    }
+    @media only screen and (max-width: 767px) {
+      grid-column: 1 / 1;
+      grid-row: 3 / 3;
+      font-size: 18px;
+    }
   }
   .blogDate {
-    font-size: 12px;
-    margin: 0;
-    padding: 0;
+    font-size: 16px;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+    @media only screen and (max-width: 767px) {
+      grid-column: 1 / 1;
+      grid-row: 2 / 2;
+    }
+  }
+  .blogDesc {
+    line-height: 1.5;
+    @media only screen and (max-width: 767px) {
+      font-size: 12px;
+    }
   }
 </style>
